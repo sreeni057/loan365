@@ -260,8 +260,13 @@
             url: 'contact_mail',
             dataType:'json',
             data:last,
-                success: function(data) {
-                    console.log(data);
+            success: function(data) {
+                $('.contactbtn').attr("disabled", true);
+                $('#sendmessage').css('display','block');
+                $("input[name=name]").val('');
+                $("input[name=email]").val('');
+                $("input[name=subject]").val('');
+                 $('#body').val('').empty();
 
             },
             error: function (data) {
@@ -270,6 +275,7 @@
                                 if(errors.status === 400){                        
                                 $.each(errors.errors, function (key, val) {
                                     $("."+key).text(val);
+                                    $('.'+key).delay(1000).fadeOut(4000);
                                 });
                             }
                         }                        

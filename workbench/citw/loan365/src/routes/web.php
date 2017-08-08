@@ -14,4 +14,5 @@ Route::group(['middleware' => 'web'], function ()
 	Route::any('reset/user/{token}', 'Citw\Loan365\Http\Controllers\Auth\ForgotPasswordController@getReset');
 	Route::get('contact', 'Citw\Loan365\Http\Controllers\guest@contact');	
 	Route::any('contact_mail', 'Citw\Loan365\Http\Controllers\guest@contact_mail');		
+	Route::any('hmi', 'Citw\Loan365\Http\Controllers\guest@hmi_calc');		
 });

@@ -33,12 +33,13 @@ class ForgotPasswordController extends Controller
 
   public function __construct(Request $request)
   {
+      $this->siderbarActive   = "login"; 
       $this->request = $request;
   }
   public function index()
   {
-
-     return view('loan365::auth.forgot');
+     $fetchvalues['siderbarActive']          = $this->siderbarActive ;
+     return view('loan365::auth.forgot',compact('fetchvalues'));
 
   }
 

@@ -46,7 +46,7 @@ class LoginController extends Controller
         {
             return redirect('dashboard');    
         }
-        $fetchvalues['siderbarActive']          = 'home';
+        $fetchvalues['siderbarActive']          = 'login';
         return view('loan365::auth.login',compact('fetchvalues'));
     }
 

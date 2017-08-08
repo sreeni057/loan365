@@ -9,7 +9,7 @@ class Users extends Authenticatable
 {
 	use SoftDeletes;
 	protected $table = 'users';
-    protected $fillable = ['email','password','mortgage_type','mortgage_last_id'];
+    protected $fillable = ['email','password','mortgage_type','mortgage_last_id','user_key'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -36,17 +36,5 @@ class Users extends Authenticatable
         );
         $validator = \Validator::make($inputArr, $rules, $messages);
         return $validator;
-    }
-    public function profile()
-    {
-        return $this->hasOne('App\Models\UsersProfile','user_id','id');
-    }
-    public function social()
-    {
-        return $this->hasMany('App\Models\Social','user_id','id');
-    }
-    public function subscribe()
-    {
-        return $this->hasOne('Dexel\User\Models\SubscribeModel','user_id','id');
     }
 }

@@ -43,7 +43,7 @@ class RegisterController extends Controller
 
     public function __construct(Request $request)
     {
-        $this->siderbarActive   = "home"; 
+        $this->siderbarActive   = "login"; 
         $this->request = $request;
     }
 
@@ -70,11 +70,11 @@ class RegisterController extends Controller
             {
                 if(session::get('mortgage_type') == 1)
                 {
-                   $fetch_value                = purchases::fetchvalues(session::get('last_id'));
+                   $fetch_value                = purchases::where('id',session::get('last_id'))->first();
                 }
                 elseif(session::get('mortgage_type') == 2)
                 {
-                   $fetch_value                 = remortages::fetchvalues(session::get('last_id'));
+                   $fetch_value                 = remortages::where('id',session::get('last_id'))->first();
                 }
                 else
                 {
@@ -82,6 +82,7 @@ class RegisterController extends Controller
                 }
                 $reg_input['mortgage_last_id']  = $fetch_value->id;
                 $reg_input['mortgage_type']     = $fetch_value->mortgage_type;
+                $reg_input['user_key']          = session::get('user_key');
             }
             //dd($reg_input);
             $user = Users::create($reg_input);
@@ -92,10 +93,10 @@ class RegisterController extends Controller
                                         'user_id'=>$user->id
                                     );
                     if(session::get('mortgage_type') == 1){
-                       $fetch_value                = purchases::updatevalues(session::get('last_id'),$inputArr);
+                       $fetch_value                = purchases::where('id',session::get('last_id'))->update($inputArr);
                     }
                     elseif(session::get('mortgage_type') == 2){
-                       $fetch_value                = remortages::updatevalues(session::get('last_id'),$inputArr);
+                       $fetch_value                = remortages::where('id',session::get('last_id'))->update($inputArr);
                     }
                 }           
                 session::flush(); 

@@ -40,6 +40,7 @@ class Remortages extends Migration
             $table->string('user_dob', 60);
             $table->integer('monthly_rental_cover')->default(null);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

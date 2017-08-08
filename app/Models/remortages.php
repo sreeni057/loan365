@@ -10,29 +10,10 @@ class remortages extends Model
     use SoftDeletes;
     /*Table Name*/
 	protected $table         = 'remortages';
-	/*insert query*/
-	public static function insertvalues($inputArr)
-	{
-		$insertvalue         = DB::table('remortages')
-    							->insertGetId($inputArr);
-    	return $insertvalue;
-	}
-	/*update query*/
-	public static function updatevalues($id,$inputArr)
-	{
-		$updatevalues         = DB::table('remortages')
-								->where('id',$id)
-    						 	->update($inputArr);
-    	return $updatevalues;
-	}
-	/*fetch single row*/
-	public static function fetchvalues($id)
-	{
-		$fetchvalues         = DB::table('remortages')
-    						 	->where('id',$id)
-								->first();
-    	return $fetchvalues;
-	}
+
+	protected $fillable = [
+        'user_id', 'mortgage_type', 'remortgage_type','value_of_home','monthly_mortages_repay','total_years_mortages','balance_current_mortages','end_date_mortgage_introductory','applying_type','earn_each_year','stamp_duty','rental_cover_property','outstanding_cc_balances','monthly_repay_loan','country_court_judegment','iva','appeals_type','introductory_rate','capital_type','user_name','user_email','user_dob','monthly_rental_cover'
+    ];
 	/*Delete row*/
 	public static function deletevalues($id)
 	{
@@ -40,13 +21,5 @@ class remortages extends Model
     						 	->where('id',$id)
 								->delete();
     	return $deletevalues;
-	}
-	/*Table value check */
-	public static function check_table($id)
-	{
-		$check_table 		= DB::table('remortages')
-		    						 	->where('id',$id)
-										->count();
-		return $check_table;
 	}
 }

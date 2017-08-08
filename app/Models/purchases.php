@@ -10,29 +10,10 @@ class purchases extends Model
     use SoftDeletes;
     /*Table Name*/
 	protected $table = 'purchases';
-	/*insert query*/
-	public static function insertvalues($inputArr)
-	{
-		$insertvalue         = DB::table('purchases')
-    							->insertGetId($inputArr);
-    	return $insertvalue;
-	}
-	/*update query*/
-	public static function updatevalues($id,$inputArr)
-	{
-		$updatevalues         = DB::table('purchases')
-								->where('id',$id)
-    						 	->update($inputArr);
-    	return $updatevalues;
-	}
-	/*fetch single row*/
-	public static function fetchvalues($id)
-	{
-		$fetchvalues         = DB::table('purchases')
-    						 	->where('id',$id)
-								->first();
-    	return $fetchvalues;
-	}
+
+	protected $fillable = [
+        'user_id', 'mortgage_type', 'buyer_type','applying_type','earn_each_year','stamp_duty','rental_cover','outstanding_cc_balances','monthly_repay_loan','country_court_judegment','iva','appeals_type','introductory_rate','capital_type','user_name','user_email','user_dob','updated_at','deleted_at'
+    ];
 	/*Delete row*/
 	public static function deletevalues($id)
 	{
@@ -41,14 +22,7 @@ class purchases extends Model
 								->delete();
     	return $deletevalues;
 	}
-	/*Table value check */
-	public static function check_table($id)
-	{
-		$check_table 		= DB::table('purchases')
-		    						 	->where('id',$id)
-										->count();
-		return $check_table;
-	}
+	/*validation*/
 	public static function validation($inputArr)
     {
 

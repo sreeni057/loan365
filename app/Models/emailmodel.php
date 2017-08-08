@@ -46,7 +46,7 @@ class emailmodel extends Model
 	 /* The function email_sending send email 
 	 * to the registered dealer email.
      */
-	public static function email_sending($email,$data,$replyto='support@dealerplus.in')
+	public static function email_sending($email,$data,$replyto='support@loan365.com.au')
 	{
 		$data['email'] = $email;
 		$data['replyto'] = $replyto;

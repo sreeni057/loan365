@@ -61,8 +61,8 @@
                                     </div>
                                 </div>
                                 <div class="col-md-2">
-                                    <button class="btn btn-simple btn-danger">Start again</button>
-                                    <button class="btn btn-danger">Resume<div class="ripple-container"></div></button>
+                                    <a href="{{url('onboarding/1/')}}" class="btn btn-simple btn-danger">Start again</a>
+                                    <a href="{{url('onboarding').'/'.$compact_array['key']}}" class="btn btn-danger">Resume<div class="ripple-container"></div></a>
                                 </div>
                             </div>
                         </div>

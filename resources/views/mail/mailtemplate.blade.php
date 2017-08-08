@@ -1,3 +1,3 @@
 @include('mail.mailheader')
-{{$data['mail_subject']}}
+{{$data['mail_content']}}
 @include('mail.mailfooter')

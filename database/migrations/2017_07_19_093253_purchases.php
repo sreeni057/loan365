@@ -34,6 +34,7 @@ class Purchases extends Migration
             $table->string('user_email', 60);
             $table->string('user_dob', 60);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

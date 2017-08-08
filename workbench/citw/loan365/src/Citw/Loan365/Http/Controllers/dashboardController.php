@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Input;
 use App\Models\Users;
 use Session;
 use Redirect;
-use DB;
 class dashboardController extends Controller
 {
     public function __construct()
@@ -24,7 +23,9 @@ class dashboardController extends Controller
     }
     public function dashboard()
     {
+        $user_info        = Users::where('id',$this->user_id)->first();
         $compact_array    = array(
+                                    'key'        => $user_info->user_key,
                                     'user_email' => $this->user_email,
                                  );
         return view('loan365::user.dashboard',compact('compact_array'));
