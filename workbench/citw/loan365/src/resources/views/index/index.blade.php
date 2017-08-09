@@ -1,9 +1,9 @@
 <!-- Header Start -->
-@include('header')
+@include('loan365::header.header')
 <!-- Header Close -->
 <body class="template-slider style-simple layout-full-width mobile-tb-left button-stroke no-content-padding header-creative header-open header-rtl minimalist-header sticky-white ab-show subheader-both-center menu-line-below-80-1 menuo-right footer-copy-center">
   <!-- Sidebar Start -->
-  @include('sidebar')
+   @include('loan365::sidebar.sidebar')
   <!-- Sidebar Close-->
     <!-- Main Theme Wrapper -->
     <div id="Wrapper">
@@ -326,7 +326,7 @@
             </div>
         </div>
         <!-- Footer-->
-        @include('footer')
+        @include('loan365::footer.footer')
     </div>
 
     <!-- JS -->

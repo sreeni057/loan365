@@ -1,4 +1,4 @@
-@include('header')
+@include('loan365::header.header')
     <body class="header" style="background-color: white">
     <!-- Tittle bar start -->
         <nav class="navbar navbar-info">
@@ -94,7 +94,7 @@
         </div>
         <!-- box end -->
         <!-- Footer-->
-        @include('footer')
+        @include('loan365::footer.footer')
     </div>
     
     <!-- JS -->

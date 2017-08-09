@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+	$fetchvalues['siderbarActive'] = 'home';
+    return view('loan365::index.index',compact('fetchvalues'));
 });
 
 
